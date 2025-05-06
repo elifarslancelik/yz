@@ -60,3 +60,4 @@ Now you can run the assistant using the terminal.
 Artık terminal üzerinden asistanı çalıştırabilirsiniz:
 
 ```
+![Terminal Screenshot](images/yzss.png)
