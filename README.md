@@ -59,7 +59,16 @@ Değişikliklerin geçerli olması için source ~/.zshrc komutunu çalıştırı
 Write @ai to Terminal
 Artık terminal üzerinden @ai yazarak asistanı çalıştırabilirsiniz:
 
-```
+---
+
+### ⚠️ Edit start.sh Path / start.sh Dosyasını Düzenleyin
+
+**English:**
+After cloning the project, you must edit the `start.sh` file and update all file paths to match your own username and directory structure.
+
+**Türkçe:**
+Projeyi klonladıktan sonra, `start.sh` dosyasını açıp içindeki tüm dosya yollarını kendi kullanıcı adınıza ve bilgisayarınızdaki proje dizinine göre güncellemelisiniz.
+
 ## 🖼️ Screenshot
 
 ![Terminal Screenshot](./images/yzss.png)
