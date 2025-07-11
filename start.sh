@@ -1,10 +1,10 @@
 #!/bin/zsh
 
-# VENV'i aktive et
+# Activate the virtual environment
 source /Users/username/Desktop/yz/venv/bin/activate
 
-# Python scriptini çalıştır
+# Run the Python script
 python3 /Users/username/Desktop/yz/yz.py
 
-# Hata olsa bile venv'den çık
+# Deactivate the virtual environment even if there is an error
 deactivate
