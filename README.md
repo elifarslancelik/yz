@@ -69,6 +69,8 @@ After cloning the project, you must edit the `start.sh` file and update all file
 **Türkçe:**
 Projeyi klonladıktan sonra, `start.sh` dosyasını açıp içindeki tüm dosya yollarını kendi kullanıcı adınıza ve bilgisayarınızdaki proje dizinine göre güncellemelisiniz.
 
+---
+
 ## 🖼️ Screenshot
 
 ![Terminal Screenshot](./images/yzss.png)
