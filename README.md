@@ -45,7 +45,7 @@ Add the following lines:
 Dosyaya şu satırları ekleyin:
 
 export PATH=$PATH:/Users/username/bin
-/Users/username/Desktop/yz/start.sh
+alias @ai='python3 /Users/username/Desktop/yz/start.sh'
 
 Note: Be sure to replace /username/ with your actual username.
 Not: Gerçek kullanıcı adınızla /username/ kısmını değiştirdiğinizden emin olun.
@@ -56,8 +56,8 @@ Değişiklikleri kaydedin ve dosyayı kapatın.
 Run source ~/.zshrc to apply the changes:
 Değişikliklerin geçerli olması için source ~/.zshrc komutunu çalıştırın.
 
-Now you can run the assistant using the terminal.
-Artık terminal üzerinden asistanı çalıştırabilirsiniz:
+Write @ai to Terminal
+Artık terminal üzerinden @ai yazarak asistanı çalıştırabilirsiniz:
 
 ```
 ## 🖼️ Screenshot
