@@ -13,12 +13,12 @@ def get_yz(prompt):
         "Content-Type": "application/json"
     }
     
-    system_prompt = """YALNIZCA Mac terminal komutları üret. Hiçbir açıklama, yorum veya ek bilgi yazma.
-Örnekler:
+    system_prompt = """ONLY generate Mac terminal commands. Do not write any explanation, comment, or extra information.
+Examples:
 -ls
 -cd ~/Desktop
--mkdir yeni_klasör
-Sadece istenen komutu döndür, başka HİÇBİR şey yazma."""
+-mkdir new_folder
+Return only the requested command, do not write ANYTHING else."""
 
     data = {
         "model": "deepseek-chat",
@@ -26,7 +26,7 @@ Sadece istenen komutu döndür, başka HİÇBİR şey yazma."""
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": prompt}
         ],
-        "temperature": 0.3,  # Daha deterministik çıktı için
+        "temperature": 0.3,  # For more deterministic output
         "max_tokens": 100
     }
     
@@ -39,49 +39,49 @@ Sadece istenen komutu döndür, başka HİÇBİR şey yazma."""
     if response.status_code == 200:
         return response.json()["choices"][0]["message"]["content"].strip()
     else:
-        return f"Hata: {response.status_code} - {response.text}"
+        return f"Error: {response.status_code} - {response.text}"
 
 
 def run_code(code):
     try:
-        print("\nKodu çalıştırıyorum...")
+        print("\nRunning the code...")
 
-        # Yapay zekanın verdiği kodu terminal komutu olarak çalıştır
+        # Run the code provided by the AI as a terminal command
         result = subprocess.run(code, shell=True, capture_output=True, text=True)
         
         if result.stdout:
             print(result.stdout)
         if result.stderr:
-            print("Hata:", result.stderr)
+            print("Error:", result.stderr)
 
     except Exception as e:
-        print(f"Çalıştırma Hatası: {str(e)}")
+        print(f"Execution Error: {str(e)}")
 
 
 def main():
-    print("Yapay Zeka ile Etkileşim Başlatılıyor...")
+    print("Interaction with AI is starting...")
     try:
         while True:
-            user_input = input("Yapay Zeka'ya komut verin: ")
+            user_input = input("Give a command to the AI: ")
             
             if user_input.lower() == 'exit':
-                print("Çıkılıyor...")
+                print("Exiting...")
                 break
             
             code = get_yz(user_input)
-            print("\nYapay Zeka tarafından yazılan kod:\n", code)
+            print("\nCode written by AI:\n", code)
             
-            # Kullanıcıya onay isteği
-            choice = input("\nKod çalıştırılsın mı? (yes/no): ").strip().lower()
+            # Ask for user confirmation
+            choice = input("\nShould the code be executed? (yes/no): ").strip().lower()
             
             if choice == 'yes':
                 run_code(code)
             elif choice == 'no':
-                print("Kod çalıştırılmadı.")
+                print("The code was not executed.")
             else:
-                print("Geçersiz seçenek. Kod çalıştırılmayacak.")
+                print("Invalid option. The code will not be executed.")
     except KeyboardInterrupt:
-        print("\nKullanıcı tarafından durduruldu. Güle güle!")
+        print("\nStopped by user. Goodbye!")
 
 if __name__ == "__main__":
     main()
