@@ -1,21 +1,21 @@
 #!/bin/bash
 
-# 1. Sanal ortam oluştur
-echo "🛠️ Sanal ortam oluşturuluyor..."
-python3 -m venv venv || { echo "Sanal ortam oluşturulamadı"; exit 1; }
+# 1. Create virtual environment
+echo "🛠️ Creating virtual environment..."
+python3 -m venv venv || { echo "Virtual environment could not be created"; exit 1; }
 
-# 2. Sanal ortamı AKTİF ET (kritik adım!)
-echo "🔌 Sanal ortam etkinleştiriliyor..."
-source venv/bin/activate || { echo "Sanal ortam etkinleştirilemedi"; exit 1; }
+# 2. ACTIVATE the virtual environment (critical step!)
+echo "🔌 Activating virtual environment..."
+source venv/bin/activate || { echo "Virtual environment could not be activated"; exit 1; }
 
-# 3. Bağımlılıkları yükle
-echo "📦 Bağımlılıklar yükleniyor..."
+# 3. Install dependencies
+echo "📦 Installing dependencies..."
 pip install --upgrade pip
-pip install -r requirements.txt || { echo "Bağımlılıklar yüklenemedi"; exit 1; }
+pip install -r requirements.txt || { echo "Dependencies could not be installed"; exit 1; }
 
-# 4. Ana programı çalıştır
-echo "🚀 Program başlatılıyor..."
+# 4. Run the main program
+echo "🚀 Starting the program..."
 python yz.py
 
-# 5. Sanal ortamdan çık
+# 5. Deactivate the virtual environment
 deactivate
