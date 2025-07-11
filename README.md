@@ -45,7 +45,7 @@ Add the following lines:
 Dosyaya şu satırları ekleyin:
 
 export PATH=$PATH:/Users/username/bin
-alias @ai='python3 /Users/username/Desktop/yz/start.sh'
+alias @ai='sh /Users/username/Desktop/yz/start.sh'
 
 Note: Be sure to replace /username/ with your actual username.
 Not: Gerçek kullanıcı adınızla /username/ kısmını değiştirdiğinizden emin olun.
